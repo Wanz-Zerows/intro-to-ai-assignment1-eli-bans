@@ -72,11 +72,15 @@ heuristic = {
     'G': 0
 }
 
-# Initialize graph object
+# initialize graph object
 g = Graph(graph_dict, heuristic)
 
-# Example usage
-g.dfs('A','F')
+# allow user input for dfs start note
+dfs_start = input("Please enter a start node for the dfs traversal.\n"
+                  "You may choose between A and G ")
+g.dfs(dfs_start.upper(),'F')
+
+# method usage
 g.all_paths('A', 'G')
 g.greedy_best_first_search('A', 'G')
 g.a_star('A', 'G')
