@@ -53,22 +53,22 @@ class Graph:
 
 # given graph and heuristic
 graph_dict = {
-    'A': {'B': 1, 'C': 4, 'E': 3},
-    'B': {'A': 1, 'D': 5, 'E': 2},
-    'C': {'A': 4, 'F': 2},
-    'D': {'B': 5, 'G': 5},
-    'E': {'A': 3, 'B': 2, 'F': 6},
-    'F': {'C': 2, 'E': 6, 'G': 4},
-    'G': {'D': 5, 'F': 4}
+    'A': {'B': 1, 'C': 4},
+    'B': {'C': 2, 'D': 3},
+    'C': {'E': 5},
+    'D': {'F': 2, 'G': 4},
+    'E': {'G': 3},
+    'F': {'G': 1},
+    'G': {}
 }
 
 heuristic = {
-    'A': 0,
-    'B': float("inf"),  #assigning unknown cost to infinity
-    'C': 1,
-    'D': 2,
+    'A': 5,
+    'B': 4,  #assigning unknown cost to infinity
+    'C': 4,
+    'D': 3,
     'E': 3,
-    'F': 2,
+    'F': 1,
     'G': 0
 }
 
@@ -76,7 +76,7 @@ heuristic = {
 g = Graph(graph_dict, heuristic)
 
 # Example usage
-g.dfs('A', 'G')
+g.dfs('A','F')
 g.all_paths('A', 'G')
 g.greedy_best_first_search('A', 'G')
 g.a_star('A', 'G')
